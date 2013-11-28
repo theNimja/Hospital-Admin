@@ -34,15 +34,19 @@ playAgain="y"
 
 while playAgain=="y":
         print("You are Hospital-Admin3.6.1.exe, the revolutionary new software from Simpson Enterprises for hospital administration.")
+        time.sleep(0.5)
         print("You have been licenced to the local hospital to help out the hospital with admissions and discharges.")
+        time.sleep(0.5)
         print("However "+GetName()+",the hospital manager, is not convinced of your helpfulness. Doctors are checking all your decisions,")
+        time.sleep(0.5)
         print("and making too many mistakes will result in your deletion. Survive!")
-
+        time.sleep(2.5)
         mistakes=0
         hours = 0
         
         while mistakes <3:
                 #incoming patient
+                print("\n\n")
                 newPatient=GetPatient()
                 print("Incoming Patient\n+---------------------------------------------------------+")
                 print("Name:" +newPatient["name"])

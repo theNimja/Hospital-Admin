@@ -33,6 +33,11 @@ tempHealthyLowerLimit=36
 playAgain="y"
 
 while playAgain=="y":
+        print("You are Hospital-Admin3.6.1.exe, the revolutionary new software from Simpson Enterprises for hospital administration.")
+        print("You have been licenced to the local hospital to help out the hospital with admissions and discharges.")
+        print("However "+GetName()+",the hospital manager, is not convinced of your helpfulness. Doctors are checking all your decisions,")
+        print("and making too many mistakes will result in your deletion. Survive!")
+
         mistakes=0
         hours = 0
         
@@ -110,7 +115,7 @@ while playAgain=="y":
                 print(" pleased.")
                 time.sleep(1)
                 hours+=1
-        print("you made too many mistakes, and the hospital could not afford to keep you. You were deleted.You worked for "+str(hours)+" hours")
+        print("you made too many mistakes, and the hospital could not afford to keep you. You were deleted.You worked for "+str(hours)+" hours.")
         print("+--------------------------------------------------------+")
         print("         SYSTEM SHUTDOWN")
         for t in range(10):

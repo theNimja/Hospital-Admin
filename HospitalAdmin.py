@@ -120,7 +120,7 @@ while playAgain=="y":
                         correct=True
                 elif (not ill and responce == "y"):
                         print("After human examination,"+newPatient["name"]+" was discharged.")
-                        correct=False
+                        correct=True
                 elif (ill and responce=="y"):
                         print("After human examination, "+newPatient["name"]+" was found out to be ill.")
                 elif (not ill and responce =="n"):

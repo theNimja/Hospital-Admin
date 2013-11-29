@@ -8,10 +8,18 @@ def GetName():
 	return name
 
 def GetPatient():
-	name=GetName()
-	temp=random.randint(tempLowerLimit,tempUpperLimit)+(random.randint(0,9)/10)
-	symptom=symptoms[random.randint(0,len(symptoms)-1)]
-	return {"name":name,"temperature":temp,"symptom":symptom}
+        name=GetName()
+        temp=random.randint(tempLowerLimit,tempUpperLimit)+(random.randint(0,9)/10)
+        symptom=symptoms[random.randint(0,len(symptoms)-1)]
+        poorly=""
+        if IsIll({"name":name,"temperature":temp,"symptom":symptom,}):
+                if random.randint(0,3):
+                        poorly=poorlyWords[random.randint(0,len(poorlyWords)-1)]
+
+        else:
+                if not random.randint(0,3):
+                        poorly=poorlyWords[random.randint(0,len(poorlyWords)-1)]
+        return {"name":name,"temperature":temp,"symptom":symptom,"poorly?":poorly}
 	
 def IsIll(patient):
         ill = False
@@ -29,11 +37,12 @@ tempUpperLimit=40.0
 tempLowerLimit=34.0
 tempHealthyUpperLimit=38
 tempHealthyLowerLimit=36
+poorlyWords="poorly bad sick ill delusional".split()
 
 playAgain="y"
 
 while playAgain=="y":
-        print("You are Hospital-Admin3.6.1.exe, the revolutionary new software from Simpson Enterprises for hospital administration.")
+        print("You are Hospital-Admin, the revolutionary new software from Simpson Enterprises for hospital administration.")
         time.sleep(0.5)
         print("You have been licenced to the local hospital to help out the hospital with admissions and discharges.")
         time.sleep(0.5)
@@ -52,7 +61,9 @@ while playAgain=="y":
                 print("Name:" +newPatient["name"])
                 print("Temperature: "+str(newPatient["temperature"]))
                 if (newPatient["symptom"]):
-                        print("The patient is "+newPatient["symptom"])
+                        print("The patient is "+newPatient["symptom"]+".")
+                if (newPatient["poorly?"]):
+                        print("The patient looks "+newPatient["poorly?"]+".")
                 print("+--------------------------------------------------------+")
 
                 responce="m"
@@ -91,7 +102,9 @@ while playAgain=="y":
                 print("Name:" +newPatient["name"])
                 print("Temperature: "+str(newPatient["temperature"]))
                 if (newPatient["symptom"]):
-                        print("The patient is "+newPatient["symptom"])
+                        print("The patient is "+newPatient["symptom"]+".")
+                if (newPatient["poorly?"]):
+                        print("The patient looks "+newPatient["poorly?"]+".")
                 print("+--------------------------------------------------------+")
 
                 responce="m"

@@ -1,0 +1,31 @@
+	HOSPITAL ADMIN
++---------------------------------------------------------+
+Hospital Admin is a game in which you play as a
+piece of sofware administrating a hospital.
+
+                 INSTALLATION
++----------------------------------------------------------+
+Hospital admin itself requires no installation. However,
+to play, you must download the latest version of Python 3.
+Python can be found here: http://www.python.org/
+Note that you must download Python 3.x.x, where x can 
+be any number. then install Python.
+Congratulations, you have installed Python and can play!
+
+                    PLAYING
++-----------------------------------------------------------+
+To run Hospital Admin, find the file called "HospitalAdmin.py".
+Run the file in the method of your operating system. If your 
+computer asks for a program to run Hospital Admin with, find and 
+select the program "python.exe".
+
+Hospital Admin is a text adventure. To play, simply answer the
+prompts with either a "y" for "yes", or "n" for "no".
+
+
+         TROUBLESHOOTING
++---------------------------------------------------------+
+Help! a window pops up and says there is an error!
+You may have selected the wrong program to open Hospital
+Admin with. Open it with "python.exe". Or you may have installed
+the wrong vesion of Python.

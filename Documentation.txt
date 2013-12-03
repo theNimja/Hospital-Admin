@@ -28,4 +28,4 @@ prompts with either a "y" for "yes", or "n" for "no".
 Help! a window pops up and says there is an error!
 You may have selected the wrong program to open Hospital
 Admin with. Open it with "python.exe". Or you may have installed
-the wrong vesion of Python.
+the wrong version of Python.

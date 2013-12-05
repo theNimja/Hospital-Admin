@@ -1,4 +1,4 @@
-import sys, time, random
+import sys, time, random,pyaudio,wave
 
 
 def GetName():
@@ -28,7 +28,31 @@ def IsIll(patient):
         if (patient["symptom"]):
                 ill=True
         return ill
+def PlaySound(sound):
+        CHUNK = 1024
 
+        #       if len(sys.argv) < 2:
+        #         sys.exit(-1)
+
+        wf = wave.open(sound, 'rb')
+
+        p = pyaudio.PyAudio()
+
+        stream = p.open(format=p.get_format_from_width(wf.getsampwidth()),
+                        channels=wf.getnchannels(),
+                        rate=wf.getframerate(),
+                        output=True)
+
+        data = wf.readframes(CHUNK)
+
+        while data != '':
+            stream.write(data)
+            data = wf.readframes(CHUNK)
+
+        stream.stop_stream()
+        stream.close()
+
+        p.terminate()  
         
 firstNames ="Joshua Laurie Brodie Sara Jeevan Patrick James Nimrod Carlin Morgan Brandon Sarah Ryan Rishi Shaun Jamie".split()
 familyNames="Craig Cunninghamn Duff Duthie Francis Kane Lawson Libman Mackenzie McPherson Mills Mir Morrice Purkayastha Wilson McDonald".split()
@@ -42,6 +66,7 @@ poorlyWords="poorly bad sick ill delusional".split()
 playAgain="y"
 
 while playAgain=="y":
+        PlaySound("beepbeep.wav")
         print("You are Hospital-Admin, the revolutionary new software from Simpson Enterprises for hospital administration.")
         time.sleep(0.5)
         print("You have been licenced to the local hospital to help out the hospital with admissions and discharges.")
@@ -57,6 +82,7 @@ while playAgain=="y":
                 #incoming patient
                 print("\n\n")
                 newPatient=GetPatient()
+                PlaySound("sick.wav")
                 print("Incoming Patient\n+---------------------------------------------------------+")
                 print("Name:" +newPatient["name"])
                 print("Temperature: "+str(newPatient["temperature"]))
@@ -98,6 +124,7 @@ while playAgain=="y":
                 print("\n\n")
         #outgoing patient
                 newPatient=GetPatient()
+                PlaySound("sick2.wav")
                 print("Outgoing Patient\n+---------------------------------------------------------+")
                 print("Name:" +newPatient["name"])
                 print("Temperature: "+str(newPatient["temperature"]))
@@ -134,14 +161,12 @@ while playAgain=="y":
                 hours+=1
         print("you made too many mistakes, and the hospital could not afford to keep you. You were deleted.You worked for "+str(hours)+" hours.")
         print("+--------------------------------------------------------+")
-        print("         SYSTEM SHUTDOWN")
-        for t in range(10):
-                time.sleep(1)
-                print("|")
-
+        print("                  GAME OVER                      ")
+        PlaySound("flat.wav")
+      
         print("Do you want to play again?(y to play again):")
         playAgain=input()
-
+        
 print("Goodbye.")
 time.sleep(2)
 sys.exit()
